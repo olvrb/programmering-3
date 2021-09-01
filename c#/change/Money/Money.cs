@@ -1,6 +1,6 @@
 namespace change {
     public class Money {
-        public int Type { get; set; }
+        public int Type { get; }
         public int Amount { get; set; }
 
         public Money(int type) {
@@ -8,6 +8,7 @@ namespace change {
         }
 
         public string GetHumanName() {
+            // Return a the human readable format for each type of bill/coin.
             switch (this.Type) {
                 case 1000:
                     return this.Amount > 1 ? "tusenlappar" : "tusenlapp";

@@ -19,13 +19,14 @@ namespace change {
                 new Money(1)
             };
 
+            
+            // Get price and paid amount.
+            int price = GetIntInput("Enter price: ");
+            int paid = GetIntInput("Enter how much paid: ");
+            int calc =  paid - price;
 
-            Console.Write("Enter price: ");
-            int i = Int32.Parse(Console.ReadLine());
-            Console.Write("Enter how much paid: ");
-            int calc = Int32.Parse(Console.ReadLine()) - i;
 
-
+            // Add one or more bills/coins of every relevant type to the money collection.
             foreach (var m in possibilities) {
                 while (calc >= m.Type) {
                     m.Amount++;
@@ -35,12 +36,31 @@ namespace change {
                 change.AddMoney(m);
             }
 
+            // Iterate through every type of money and print how many of each bills/coins the customer is to get back.
             foreach (var money in change.Moneys) {
                 if (money.Amount != 0) {
                     Console.WriteLine($"{money.Amount} * {money.GetHumanName()}");
                 }
             }
+
             Console.WriteLine($"Total is {change.Sum()}kr");
+        }
+
+        public static int GetIntInput(string message) {
+            
+            // Keep asking for a number until get a valid number. -1 is just a placeholder
+            int i = -1;
+            while (i == -1) {
+                Console.Write(message);
+                try {
+                    i = int.Parse(Console.ReadLine());
+                }
+                catch (Exception e) {
+                    Console.WriteLine("Please enter a number.");
+                }
+            }
+
+            return i;
         }
     }
 }
