@@ -35,15 +35,25 @@ namespace change_gui
                 new Money(1)
             };
 
+            int calc = 0;
+            while (calc <= 0)
+            {
+                // Get price and paid amount.
+                int price = GetIntFromTextBox(priceBox);
+                int paid = GetIntFromTextBox(paidBox);
 
-            // Get price and paid amount.
-            int price = GetIntFromTextBox(priceBox);
-            int paid = GetIntFromTextBox(paidBox);
 
-            // -1 means no valid number was entered.
-            if (price == -1 || paid == -1) return;
+                // -1 means no valid number was entered.
+                if (price == -1 || paid == -1) return;
 
-            int calc = paid - price;
+                calc = paid - price;
+
+                if (calc < 0)
+                {
+                     MessageBox.Show("Not enough money :(. Try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
 
 
             // Add one or more bills/coins of every relevant type to the money collection.
@@ -63,7 +73,7 @@ namespace change_gui
             {
                 if (money.Amount != 0)
                 {
-                    resultBox.AppendText($"{money.Amount} * {money.GetHumanName()}\n");
+                    resultBox.AppendText($"{money.Amount} {money.GetHumanName()}\n");
                 }
             }
 
