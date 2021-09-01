@@ -19,11 +19,19 @@ namespace change {
                 new Money(1)
             };
 
+            int calc = 0;
+            while (calc <= 0) {
+                // Get price and paid amount.
+                int price = GetIntInput("Enter price: ");
+                int paid = GetIntInput("Enter how much paid: ");
+                calc =  paid - price;
+
+                if (calc < 0) {
+                    Console.WriteLine("Not enough money :(. Try again.");
+                }
+            }
             
-            // Get price and paid amount.
-            int price = GetIntInput("Enter price: ");
-            int paid = GetIntInput("Enter how much paid: ");
-            int calc =  paid - price;
+            
 
 
             // Add one or more bills/coins of every relevant type to the money collection.
@@ -39,7 +47,7 @@ namespace change {
             // Iterate through every type of money and print how many of each bills/coins the customer is to get back.
             foreach (var money in change.Moneys) {
                 if (money.Amount != 0) {
-                    Console.WriteLine($"{money.Amount} * {money.GetHumanName()}");
+                    Console.WriteLine($"{money.Amount} {money.GetHumanName()}");
                 }
             }
 
