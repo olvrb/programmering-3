@@ -18,6 +18,7 @@ namespace personkoll {
         }
 
         private void processButton_Click(object sender, EventArgs e) {
+            // Create new person and display information.
             Person p = new Person(this.firstNameBox.Text, this.lastNameBox.Text, this.persNrBox.Text);
 
             this.infoBox.Text = p.ToString();

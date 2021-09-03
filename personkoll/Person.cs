@@ -21,9 +21,11 @@ namespace personkoll {
         }
 
         public static bool ValidatePersNr(List<int> pnr) {
+            // Extract control digit then remove it.
             int control = pnr[pnr.Count - 1];
             pnr.RemoveAt(pnr.Count - 1);
 
+            // Multiply by 2 every other time.
             int i = 0;
             while (i < pnr.Count) {
                 if (i % 2 == 0) {
@@ -33,8 +35,10 @@ namespace personkoll {
                 i++;
             }
 
+            // Split numbers with 2 or more digits, get sum of all digits.
             int sum = 0;
             foreach (int j in pnr) {
+                // Convert to char array to get all individual digits, then convert back to int and add to sum.
                 char[] nums = j.ToString().ToCharArray();
                 foreach (char c in nums) {
                     sum += int.Parse(c.ToString());
@@ -42,15 +46,18 @@ namespace personkoll {
             }
 
 
+            // sum + control should be evenly dividable by 10.
             return (sum + control) % 10 == 0;
         }
 
+        // Get second to last digit. If even female, else male.
         public char Gender => PersNr[PersNr.Length - 2] % 2 == 0 ? 'F' : 'M';
 
         public override string ToString() {
             return $"First name: {this.FirstName}\nLast name: {this.LastName}\nPersnr: {PersNr}\nGender: {this.Gender}";
         }
 
+        // Util method to convert persnr in string format to List<int>
         public static List<int> StringToIntList(string str) {
             return str.ToCharArray()
                       .Select(char.ToString)
