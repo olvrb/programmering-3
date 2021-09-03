@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace personkoll {
-    public partial class Form1 : Form {
-        public Form1() {
+    public partial class Main : Form {
+        public Main() {
             InitializeComponent();
         }
 
