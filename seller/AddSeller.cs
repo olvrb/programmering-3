@@ -22,8 +22,19 @@ namespace seller {
         }
 
         private void addButton_Click(object sender, EventArgs e) {
+            int amount = 0;
+            try
+            {
+                amount = int.Parse(this.amountBox.Text);
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Invalid amount, try again");
+                return;
+            }
             this.mainForm.AddSeller(new Seller {
-                Name = this.nameBox.Text, District = this.districtBox.Text, SSN = this.persnrBox.Text
+                Name = this.nameBox.Text, District = this.districtBox.Text, SSN = this.persnrBox.Text, Amount = amount
             });
             this.Dispose();
         }

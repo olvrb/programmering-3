@@ -37,6 +37,8 @@ namespace seller
             this.districtBox = new System.Windows.Forms.TextBox();
             this.addButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.amountBox = new System.Windows.Forms.TextBox();
+            this.amountLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // nameLabel
@@ -92,7 +94,7 @@ namespace seller
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(93, 215);
+            this.addButton.Location = new System.Drawing.Point(94, 312);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(188, 23);
             this.addButton.TabIndex = 6;
@@ -102,7 +104,7 @@ namespace seller
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(12, 215);
+            this.cancelButton.Location = new System.Drawing.Point(13, 312);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 7;
@@ -110,11 +112,30 @@ namespace seller
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
+            // amountBox
+            // 
+            this.amountBox.Location = new System.Drawing.Point(12, 238);
+            this.amountBox.Name = "amountBox";
+            this.amountBox.Size = new System.Drawing.Size(270, 20);
+            this.amountBox.TabIndex = 9;
+            // 
+            // amountLabel
+            // 
+            this.amountLabel.AutoSize = true;
+            this.amountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.amountLabel.Location = new System.Drawing.Point(13, 206);
+            this.amountLabel.Name = "amountLabel";
+            this.amountLabel.Size = new System.Drawing.Size(94, 29);
+            this.amountLabel.TabIndex = 8;
+            this.amountLabel.Text = "Amount";
+            // 
             // AddSeller
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(294, 250);
+            this.ClientSize = new System.Drawing.Size(294, 347);
+            this.Controls.Add(this.amountBox);
+            this.Controls.Add(this.amountLabel);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.districtBox);
@@ -140,5 +161,7 @@ namespace seller
         private System.Windows.Forms.TextBox districtBox;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.TextBox amountBox;
+        private System.Windows.Forms.Label amountLabel;
     }
 }
