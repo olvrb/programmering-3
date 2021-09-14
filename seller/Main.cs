@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using seller.Entities;
 
+
+// Oliver Boudet 0204150072 L0002B
 namespace seller {
     public partial class Main : Form {
         private List<Seller> sellers = new List<Seller>();
@@ -36,6 +39,9 @@ namespace seller {
 
                 this.infoBox.Text += "\n\n";
             }
+
+            StreamWriter file = new StreamWriter("out.txt");
+            file.Write(this.infoBox.Text);
         }
 
         private void SortSellers() {

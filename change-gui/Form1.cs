@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+// Oliver Boudet 0204150072 L0002B
 namespace change_gui
 {
     public partial class Form1 : Form
