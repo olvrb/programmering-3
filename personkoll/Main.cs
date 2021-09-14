@@ -18,8 +18,17 @@ namespace personkoll {
         }
 
         private void processButton_Click(object sender, EventArgs e) {
-            // Create new person and display information.
-            Person p = new Person(this.firstNameBox.Text, this.lastNameBox.Text, this.persNrBox.Text);
+            Person p = null;
+            try
+            {
+                // Create new person and display information.
+                p = new Person(this.firstNameBox.Text, this.lastNameBox.Text, this.persNrBox.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Invalid persnr");
+                return;
+            }
 
             this.infoBox.Text = p.ToString();
         }
