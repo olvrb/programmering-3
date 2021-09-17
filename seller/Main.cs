@@ -42,6 +42,7 @@ namespace seller {
 
             StreamWriter file = new StreamWriter("out.txt");
             file.Write(this.infoBox.Text);
+            file.Close();
         }
 
         private void SortSellers() {
